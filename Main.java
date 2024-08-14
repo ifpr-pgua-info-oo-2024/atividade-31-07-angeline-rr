@@ -1,6 +1,4 @@
-import java.util.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class Main {
     
@@ -22,30 +20,21 @@ public class Main {
        academia2.setEndereco("Rua Café Olé, 444");
 
 
-       SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-
        //aluno academia 1
-       Date data0 = formato.parse("05/07/2000");
-       Aluno aluno1 = new Aluno("Gabriela", "iniciante", data0);
+       Aluno aluno1 = new Aluno("Gabriela", "05/07/2000", "iniciante");
        academia1.alunos.add(aluno1);
         //OU
-       Date data1 = formato.parse("10/07/2001");
-       academia1.alunos.add(new Aluno("Joana", "intermediario", data1, "Feminino", 0, 0));
+       academia1.alunos.add(new Aluno("Joana", "10/07/2001", "intermediario", "Feminino", 0, 0));
 
-       Date data2 = formato.parse("19/06/2006");
-
-       academia1.alunos.add(new Aluno("Pedro", "intermediario", data2));
+       academia1.alunos.add(new Aluno("Pedro",  "19/06/2006", "intermediario"));
 
 
        //alunos academia 2
-       Date data3 = formato.parse("20/08/1995");
-       academia2.alunos.add(new Aluno("Rafael", "iniciante", data3));
+       academia2.alunos.add(new Aluno("Rafael",  "20/08/1995", "iniciante"));
 
-       Date data4 = formato.parse("21/12/1999");
-       academia2.alunos.add(new Aluno("Fernanda", "iniciante", data4));
+       academia2.alunos.add(new Aluno("Fernanda", "21/12/1999", "iniciante"));
 
-       Date data5 = formato.parse("27/04/1978");
-       academia2.alunos.add(new Aluno("Marcelo", "avançado", data5));
+       academia2.alunos.add(new Aluno("Marcelo", "27/04/1978", "avançado"));
 
        
        System.out.println("Dados atualizados:\n");
@@ -60,7 +49,8 @@ public class Main {
 
        System.out.println("Alunos:");
        for(Aluno item : academia2.getAlunos()){
-        System.out.println(item.toString());
+       System.out.println(item.toString());
+
      }
     }
  
