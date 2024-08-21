@@ -1,7 +1,6 @@
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class Pessoa {

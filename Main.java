@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    
+
     public static void main(String[] args) throws ParseException {
 
        Academia academia1 = new Academia("Sport Center", "40028922", "Rua Moranguinho, 821");
@@ -25,21 +25,23 @@ public class Main {
        academia2.setTelefone("99440018");
        academia2.setEndereco("Rua Café Olé, 444");
 
-
-       /*
-       //aluno academia 1
-       Aluno aluno1 = new Aluno("Gabriela", "05/07/2000", "iniciante");
-       academia1.alunos.add(aluno1);
-       academia1.alunos.add(new Aluno("Joana", "10/07/2001", "intermediario", "Feminino", 0, 0));
-       academia1.alunos.add(new Aluno("Pedro",  "19/06/2006", "intermediario"));
-       //alunos academia 2
-       academia2.alunos.add(new Aluno("Rafael",  "20/08/1995", "iniciante"));
-       academia2.alunos.add(new Aluno("Fernanda", "21/12/1999", "iniciante"));
-       academia2.alunos.add(new Aluno("Marcelo", "27/04/1978", "avançado"));
-       */
-
+       Academia academiaEscolhida = academia1; //só pra inicializar
+       int i = 0;
+       System.out.println("Deseja cadastrar alunos a qual academia?\n1 - Cross Fit 2 - Espaço Esporte");
+       i = scr.nextInt();
+       if(i == 1){
+        academiaEscolhida = academia1;
+       }
+       if(i == 2){
+        academiaEscolhida = academia2;
+       } 
+       else if(i < 1 || i > 2){
+        System.out.println("Academia inválida!");
+        scr.close();
+        return;
+       }
+       scr.nextLine();
        //usuario insere os dados
-
        
         String continuar;
         do {
@@ -65,7 +67,7 @@ public class Main {
 
             try {
                 Aluno aluno = new Aluno(nome, nascimento, nivel, genero, altura, peso);
-                alunos.add(aluno);
+                academiaEscolhida.addAluno(aluno);
                 System.out.println("Aluno cadastrado com sucesso!");
 
             } catch (ParseException e) {
@@ -76,19 +78,14 @@ public class Main {
             continuar = scr.nextLine();
 
         } while (continuar.equalsIgnoreCase("sim"));
-
-        
-
-        scr.close();
-
        
        System.out.println("Dados atualizados:\n");
        System.out.println(academia1.getNome() + "\n" + academia1.getTelefone() +  "\n" + academia1.getEndereco() + "\n");
 
        System.out.println("Alunos:");
-       for(Aluno item : academia1.getAlunos()){
-        System.out.println(item.toString());
-     }
+       for (Aluno item : academia1.getAlunos()) {
+        System.out.println(item);
+    }
 
        System.out.println("\n" + academia2.getNome() + "\n" + academia2.getTelefone() +  "\n" + academia2.getEndereco() + "\n");
 
@@ -97,6 +94,8 @@ public class Main {
        System.out.println(item.toString());
 
      }
+
+     scr.close();
     }
  
 }

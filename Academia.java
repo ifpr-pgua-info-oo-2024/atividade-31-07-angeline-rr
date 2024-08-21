@@ -15,9 +15,8 @@ public class Academia {
         this.nome = nome;
         this.telefone = telefone;
         this.endereco = endereco;
-        alunos = new ArrayList<>();
+        this.alunos = new ArrayList<>();
     }
-
     public String getNome(){
         return nome;
     }
@@ -37,7 +36,9 @@ public class Academia {
         this.endereco = endereco;
     }
 
-    
+    public void addAluno(Aluno aluno) {
+        this.alunos.add(aluno);
+    }
     public List<Aluno> getAlunos(){
         return alunos;
     }
